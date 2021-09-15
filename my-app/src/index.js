@@ -11,7 +11,6 @@ import './index.css';
     }
   
   class Board extends React.Component {
-
     handleClick(i) {
         const squares = this.state.squares.slice();
         if (calculateWinner(squares) || squares[i]) {
@@ -27,8 +26,8 @@ import './index.css';
     renderSquare(i) {
       return (
       <Square
-        value={this.state.squares[i]}
-        onClick={() => this.handleClick(i)}
+        value={this.props.squares[i]}
+        onClick={() => this.props.onClick(i)}
         />
       );
     }
