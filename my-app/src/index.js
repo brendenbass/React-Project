@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Square(props) {
+    function Square(props) {
       return (
         <button className="square" onClick={props.onClick}>
           {props.value}
@@ -11,13 +11,6 @@ function Square(props) {
     }
   
   class Board extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            squares: Array(9).fill(null),
-            xIsNext: true,
-        };
-    }
 
     handleClick(i) {
         const squares = this.state.squares.slice();
@@ -73,6 +66,16 @@ function Square(props) {
   }
   
   class Game extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        history: [{
+          squares: Array(9).fill(null),
+        }],
+        xIsNext: true,
+      };
+    }
+
     render() {
       return (
         <div className="game">
